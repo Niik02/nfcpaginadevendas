@@ -1,0 +1,6 @@
+{
+  "name": "Placas NFC Fácil - Acesso ao Fornecedor",
+  "description": "Página oficial para acesso às informações de fornecedor de placas NFC para Google e Instagram.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
