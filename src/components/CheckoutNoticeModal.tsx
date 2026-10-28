@@ -30,8 +30,6 @@ export const CheckoutNoticeModal: React.FC<CheckoutNoticeModalProps> = ({
     const finalUrl = testUrl.startsWith('http') ? testUrl : `https://${testUrl}`;
     if (onSimulateRedirect) {
       onSimulateRedirect(finalUrl);
-    } else {
-      window.open(finalUrl, '_blank', 'noopener,noreferrer');
     }
   };
 

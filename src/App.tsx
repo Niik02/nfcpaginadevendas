@@ -34,7 +34,7 @@ export default function App() {
   };
 
   const handleSimulateRedirect = (url: string) => {
-    window.open(url, '_blank', 'noopener,noreferrer');
+    window.location.href = url;
   };
 
   return (
