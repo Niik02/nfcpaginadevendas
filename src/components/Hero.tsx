@@ -1,6 +1,7 @@
 import React from 'react';
 import { ArrowRight, CheckCircle2, ShieldCheck, Tag } from 'lucide-react';
 import { PRODUCT_PLATES } from '../data/content';
+import { ImageWithFallback } from './ImageWithFallback';
 
 interface HeroProps {
   onCheckoutClick: () => void;
@@ -104,11 +105,13 @@ export const Hero: React.FC<HeroProps> = ({ onCheckoutClick }) => {
                       className="group relative bg-slate-50 rounded-2xl p-2.5 border border-slate-100 hover:border-blue-300 transition-all hover:shadow-md"
                     >
                       <div className="aspect-square w-full overflow-hidden rounded-xl bg-white flex items-center justify-center p-1.5">
-                        <img
+                        <ImageWithFallback
                           src={plate.image}
                           alt={plate.alt}
+                          fallbackTitle={plate.name}
+                          fallbackCategory={plate.category}
+                          fallbackColor={plate.colorName}
                           className="w-full h-full object-contain transition-transform duration-300 group-hover:scale-105"
-                          loading="eager"
                         />
                       </div>
                       <div className="mt-2 text-center">

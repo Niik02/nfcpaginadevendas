@@ -21,7 +21,20 @@ export const Header: React.FC<HeaderProps> = ({ onCheckoutClick }) => {
             alt="Logo Placas NFC Fácil"
             className="h-9 sm:h-10 w-auto object-contain"
             loading="eager"
+            onError={(e) => {
+              // Fallback to text brand badge if image host blocks
+              e.currentTarget.style.display = 'none';
+              const fallback = document.getElementById('header-logo-fallback');
+              if (fallback) fallback.style.display = 'flex';
+            }}
           />
+          <div 
+            id="header-logo-fallback" 
+            style={{ display: 'none' }}
+            className="items-center gap-1.5 px-2.5 py-1 rounded-lg bg-blue-600 text-white font-extrabold text-sm tracking-tight"
+          >
+            <span>PLACAS NFC FÁCIL</span>
+          </div>
         </a>
 
         {/* Action Button */}

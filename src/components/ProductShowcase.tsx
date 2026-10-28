@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Maximize2, X, Smartphone, Wifi } from 'lucide-react';
 import { PRODUCT_PLATES, ProductPlate } from '../data/content';
+import { ImageWithFallback } from './ImageWithFallback';
 
 export const ProductShowcase: React.FC = () => {
   const [selectedPlate, setSelectedPlate] = useState<ProductPlate | null>(null);
@@ -36,11 +37,13 @@ export const ProductShowcase: React.FC = () => {
                 onClick={() => setSelectedPlate(plate)}
                 title="Clique para ampliar o modelo"
               >
-                <img
+                <ImageWithFallback
                   src={plate.image}
                   alt={plate.alt}
+                  fallbackTitle={plate.name}
+                  fallbackCategory={plate.category}
+                  fallbackColor={plate.colorName}
                   className="w-full h-full object-contain transition-transform duration-300 group-hover:scale-105"
-                  loading="lazy"
                 />
                 <button
                   type="button"
@@ -122,9 +125,12 @@ export const ProductShowcase: React.FC = () => {
             </div>
 
             <div className="aspect-square w-full bg-slate-50 rounded-2xl flex items-center justify-center p-4 overflow-hidden">
-              <img
+              <ImageWithFallback
                 src={selectedPlate.image}
                 alt={selectedPlate.alt}
+                fallbackTitle={selectedPlate.name}
+                fallbackCategory={selectedPlate.category}
+                fallbackColor={selectedPlate.colorName}
                 className="w-full h-full object-contain"
               />
             </div>
