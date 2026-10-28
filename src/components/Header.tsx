@@ -1,9 +1,10 @@
 import React from 'react';
 import { ArrowRight } from 'lucide-react';
 import { BRAND_INFO } from '../data/content';
+import { CHECKOUT_URL } from '../config/checkout';
 
 interface HeaderProps {
-  onCheckoutClick: () => void;
+  onCheckoutClick?: () => void;
 }
 
 export const Header: React.FC<HeaderProps> = ({ onCheckoutClick }) => {
@@ -39,13 +40,16 @@ export const Header: React.FC<HeaderProps> = ({ onCheckoutClick }) => {
 
         {/* Action Button */}
         <div className="flex items-center gap-3 shrink-0">
-          <button
+          <a
+            href={CHECKOUT_URL}
+            target="_blank"
+            rel="noopener noreferrer"
             onClick={onCheckoutClick}
             className="inline-flex items-center gap-1.5 px-3.5 sm:px-4 py-2 text-xs sm:text-sm font-semibold tracking-wide text-white bg-blue-600 hover:bg-blue-700 active:bg-blue-800 rounded-lg shadow-xs hover:shadow-md transition-all cursor-pointer whitespace-nowrap"
           >
             <span>QUERO ACESSAR O FORNECEDOR</span>
             <ArrowRight className="w-3.5 h-3.5 sm:w-4 sm:h-4 transition-transform group-hover:translate-x-0.5" />
-          </button>
+          </a>
         </div>
       </div>
     </header>

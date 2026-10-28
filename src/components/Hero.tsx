@@ -2,9 +2,10 @@ import React from 'react';
 import { ArrowRight, CheckCircle2, ShieldCheck, Tag } from 'lucide-react';
 import { PRODUCT_PLATES } from '../data/content';
 import { ImageWithFallback } from './ImageWithFallback';
+import { CHECKOUT_URL } from '../config/checkout';
 
 interface HeroProps {
-  onCheckoutClick: () => void;
+  onCheckoutClick?: () => void;
 }
 
 export const Hero: React.FC<HeroProps> = ({ onCheckoutClick }) => {
@@ -58,13 +59,16 @@ export const Hero: React.FC<HeroProps> = ({ onCheckoutClick }) => {
 
             {/* CTA Button Block */}
             <div className="space-y-3 pt-1">
-              <button
+              <a
+                href={CHECKOUT_URL}
+                target="_blank"
+                rel="noopener noreferrer"
                 onClick={onCheckoutClick}
-                className="w-full sm:w-auto inline-flex items-center justify-center gap-3 px-8 py-4 text-base sm:text-lg font-bold text-white bg-blue-600 hover:bg-blue-700 active:bg-blue-800 rounded-xl shadow-lg shadow-blue-600/25 hover:shadow-xl hover:shadow-blue-600/30 hover:-translate-y-0.5 transition-all cursor-pointer"
+                className="w-full sm:w-auto inline-flex items-center justify-center gap-3 px-8 py-4 text-base sm:text-lg font-bold text-white bg-blue-600 hover:bg-blue-700 active:bg-blue-800 rounded-xl shadow-lg shadow-blue-600/25 hover:shadow-xl hover:shadow-blue-600/30 hover:-translate-y-0.5 transition-all cursor-pointer text-center"
               >
                 <span>QUERO ACESSAR O FORNECEDOR</span>
                 <ArrowRight className="w-5 h-5" />
-              </button>
+              </a>
 
               {/* Required microcopy */}
               <p className="text-xs text-slate-500 flex items-center gap-1.5">

@@ -1,8 +1,9 @@
 import React from 'react';
 import { ArrowRight, ShieldCheck, Lock, Check } from 'lucide-react';
+import { CHECKOUT_URL } from '../config/checkout';
 
 interface FinalOfferProps {
-  onCheckoutClick: () => void;
+  onCheckoutClick?: () => void;
 }
 
 export const FinalOffer: React.FC<FinalOfferProps> = ({ onCheckoutClick }) => {
@@ -57,13 +58,16 @@ export const FinalOffer: React.FC<FinalOfferProps> = ({ onCheckoutClick }) => {
 
           {/* CTA Button */}
           <div className="space-y-3 max-w-md mx-auto">
-            <button
+            <a
+              href={CHECKOUT_URL}
+              target="_blank"
+              rel="noopener noreferrer"
               onClick={onCheckoutClick}
-              className="w-full inline-flex items-center justify-center gap-3 px-8 py-4 sm:py-4.5 text-base sm:text-lg font-bold text-white bg-blue-600 hover:bg-blue-700 active:bg-blue-800 rounded-xl shadow-lg shadow-blue-600/25 hover:shadow-xl hover:shadow-blue-600/35 hover:-translate-y-0.5 transition-all cursor-pointer"
+              className="w-full inline-flex items-center justify-center gap-3 px-8 py-4 sm:py-4.5 text-base sm:text-lg font-bold text-white bg-blue-600 hover:bg-blue-700 active:bg-blue-800 rounded-xl shadow-lg shadow-blue-600/25 hover:shadow-xl hover:shadow-blue-600/35 hover:-translate-y-0.5 transition-all cursor-pointer text-center"
             >
               <span>QUERO MEU ACESSO POR R$ 9,99</span>
               <ArrowRight className="w-5 h-5" />
-            </button>
+            </a>
 
             {/* Microcopy */}
             <p className="text-xs text-slate-500">

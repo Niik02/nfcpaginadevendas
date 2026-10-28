@@ -22,13 +22,12 @@ export default function App() {
 
   /**
    * Manipulador único e centralizado para todos os botões de checkout da página.
-   * Se a URL do checkout estiver configurada, redireciona o usuário para ela.
-   * Caso ainda esteja como 'COLE_AQUI_O_LINK_DO_CHECKOUT', abre a modal informativa.
+   * Se a URL do checkout não estiver configurada, intercepta o clique para abrir a modal informativa.
+   * Quando configurada, permite que a tag âncora abra o link da PerfectPay com segurança.
    */
-  const handleCheckoutClick = () => {
-    if (isCheckoutConfigured(CHECKOUT_URL)) {
-      window.location.href = CHECKOUT_URL;
-    } else {
+  const handleCheckoutClick = (e?: React.MouseEvent) => {
+    if (!isCheckoutConfigured(CHECKOUT_URL)) {
+      if (e) e.preventDefault();
       setShowCheckoutNotice(true);
     }
   };
